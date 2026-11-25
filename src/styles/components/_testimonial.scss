@@ -1,0 +1,51 @@
+@use '../abstracts' as *;
+
+.testimonial {
+  padding-block: rem(88);
+  background: #e9e5db;
+
+  &__inner {
+    display: grid;
+    gap: rem(28);
+  }
+
+  &__quote {
+    max-width: rem(900);
+    font-size: clamp(rem(30), 5vw, rem(54));
+    line-height: 1.12;
+    letter-spacing: -0.055em;
+  }
+
+  &__byline {
+    display: flex;
+    align-items: center;
+    gap: rem(14);
+
+    p {
+      display: grid;
+      gap: rem(3);
+      font-size: rem(13);
+    }
+
+    span:not(.testimonial__mark) {
+      color: var(--color-muted);
+      font-size: rem(12);
+    }
+  }
+
+  &__mark {
+    color: var(--color-coral);
+    font-family: Georgia, serif;
+    font-size: rem(56);
+    line-height: 1;
+  }
+
+  @include mq(md) {
+    padding-block: rem(112);
+
+    &__inner {
+      grid-template-columns: 1fr rem(240);
+      align-items: end;
+    }
+  }
+}

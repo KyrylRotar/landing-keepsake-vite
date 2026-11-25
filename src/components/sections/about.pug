@@ -1,11 +1,4 @@
 section#about.about
-  .container.about__inner
-    p.section-heading__eyebrow About us
-    h2.about__title A small team for brands that need to move with purpose.
-    +panel('How we work').about__panel
-      p.about__copy We combine strategy, identity and digital design to turn complex ideas into clear, distinctive experiences.
-    ul.stats
-      each stat, i in stats
-        li.stats__item
-          strong.stats__value= stat.value
-          span.stats__label= stat.label
+  .container
+    h2.about__title Would you love to work with us?
+    +btn("Let's talk", '#contact').button--primary

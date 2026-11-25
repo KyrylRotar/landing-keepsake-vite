@@ -1,14 +1,16 @@
 section#works.works
   .container
-    .section-heading
-      p.section-heading__eyebrow Selected work
-      h2.section-heading__title Recent projects
-    .works__filters
-      each category, i in categories
-        label.works__filter(class={ 'works__filter--active': category.active })
-          input.visually-hidden(type='radio', name='portfolio-filter', value=category.value, checked=category.active)
-          span= category.label
+    .works__heading
+      h2.works__title Our selected work
+      .works__filters(aria-label='Filter portfolio')
+        each category in categories
+          label.works__filter(class={ 'works__filter--active': category.active })
+            input.visually-hidden(type='radio', name='portfolio-filter', value=category.value, checked=category.active)
+            span= category.label
     ul.works__grid
       each work, i in works
         li.works__item(data-category=work.category)
-          +work-card(work)
+          a.work-card(href='#contact', aria-label='View ' + work.title)
+            +picture(work.image, work.alt, 800, 632, i === 0)
+    .works__more
+      +btn('See all work', '#contact').button--outline

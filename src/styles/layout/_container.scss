@@ -1,10 +1,10 @@
 @use '../abstracts' as *;
 
 .container {
-  width: min(100% - rem(40), $container);
+  width: min(100% - rem(48), $container);
   margin-inline: auto;
 
   @include mq(md) {
-    width: min(100% - rem(80), $container);
+    width: min(100% - rem(96), $container);
   }
 }

@@ -1,5 +1,32 @@
-section#contact.contact
+footer#contact.contact
   .container.contact__inner
-    p.contact__eyebrow Start a project
-    h2.contact__title Have something in mind?
-    +btn('hello@keepsake.studio', 'mailto:hello@keepsake.studio').contact__button(aria-label='Email Keepsake')
+    .contact__brand
+      a.logo.logo--footer(href='/landing-keepsake-vite/', aria-label='Keepsake home')
+        include ../../includes/logo
+        span.logo__name Keepsake
+      p.contact__tagline An independent creative studio for a world that won't stand still.
+      ul.contact__social(aria-label='Social media')
+        each social in socials
+          li
+            a(href=social.href, target='_blank', rel='noopener', aria-label=social.label)= social.short
+    each column in footerColumns
+      .contact__column
+        h2.contact__heading= column.title
+        ul.contact__links
+          each link in column.links
+            li
+              a(
+                href=link.href,
+                target=link.external ? '_blank' : undefined,
+                rel=link.external ? 'noopener' : undefined
+              )= link.text
+    .contact__newsletter
+      h2.contact__heading Keep in touch
+      p Get occasional notes from the studio.
+      form.contact__form(action='mailto:hello@keepsake.design', method='post', enctype='text/plain')
+        label.visually-hidden(for='newsletter-email') Your email address
+        input#newsletter-email(type='email', name='email', placeholder='Your email address', required)
+        button(type='submit', aria-label='Subscribe') →
+    .contact__bottom
+      p © #{ new Date().getFullYear() } Keepsake Studio
+      a(href='#top') Back to top ↑

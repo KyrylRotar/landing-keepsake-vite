@@ -15,6 +15,8 @@ block data
   include ../data/stats
   include ../data/journal
   include ../data/footer
+  include ../data/clients
+  include ../data/testimonial
 
 block append scripts
   script(type='module', src='/src/main.js')
@@ -31,8 +33,10 @@ block content
   include ../components/sections/works
   include ../components/sections/about
   include ../components/sections/services
+  include ../components/sections/statistics
+  include ../components/sections/clients
+  include ../components/sections/testimonial
   include ../components/sections/journal
-  include ../components/sections/contact
 
 block footer
-  include ../components/footer
+  include ../components/sections/contact

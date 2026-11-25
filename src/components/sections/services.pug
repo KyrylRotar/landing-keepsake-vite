@@ -1,11 +1,24 @@
 section#services.services
   .container
     .section-heading
-      p.section-heading__eyebrow What we do
-      h2.section-heading__title From idea to identity
-    ol.services__list
+      p.section-heading__eyebrow Thoughtful by design
+      h2.section-heading__title What we do
+    ul.services__list
       each service, i in services
         li.services__item
-          span.services__number= service.number
+          span.services__icon(class='services__icon--' + service.icon, aria-hidden='true')
+            case service.icon
+              when 'identity'
+                svg(viewBox='0 0 48 48')
+                  path(d='M10 12h28v24H10zM16 19h16M16 25h11M16 31h8')
+              when 'digital'
+                svg(viewBox='0 0 48 48')
+                  path(d='M9 10h30v22H9zM18 38h12M24 32v6M15 16h18v12H15z')
+              when 'strategy'
+                svg(viewBox='0 0 48 48')
+                  path(d='M24 8v32M8 24h32M13 13l22 22M35 13 13 35')
+              default
+                svg(viewBox='0 0 48 48')
+                  path(d='M12 12h24v24H12zM18 18h12v12H18z')
           h3.services__name= service.title
           p.services__copy= service.text

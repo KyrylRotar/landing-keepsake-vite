@@ -1,42 +1,74 @@
 @use '../abstracts' as *;
 
 .journal {
-  padding-block: rem(80);
+  padding-block: rem(68);
+
+  &__heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: rem(20);
+  }
+
+  &__all {
+    margin-bottom: rem(42);
+    font-size: rem(12);
+    text-decoration: underline;
+    text-underline-offset: rem(4);
+  }
 
   &__list {
     display: grid;
-    gap: rem(32);
+    grid-template-columns: 1fr;
+    gap: rem(24) rem(32);
   }
 
   &__item {
     min-width: 0;
   }
 
-  &__image {
-    margin-bottom: rem(16);
+  .journal-card {
+    display: grid;
+    grid-template-columns: minmax(rem(108), rem(160)) 1fr;
+    align-items: center;
+    column-gap: rem(16);
   }
 
+  .journal-card__image {
+    grid-row: 1 / span 3;
+  }
+
+  picture,
   picture img {
     width: 100%;
-    aspect-ratio: 1.266;
+    aspect-ratio: 1;
     object-fit: cover;
   }
 
-  &__date {
+  &__date,
+  .journal-card__date {
+    display: block;
+    margin-top: 0;
     color: var(--color-muted);
-    font-size: rem(12);
+    font-size: rem(11);
   }
 
-  &__title {
+  .journal-card__title {
     margin-top: rem(8);
-    font-size: rem(22);
+    font-size: rem(16);
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+  }
+
+  .journal-card__copy {
+    margin-top: rem(8);
+    color: var(--color-muted);
+    font-size: rem(13);
   }
 
   @include mq(md) {
-    padding-block: rem(120);
-
     &__list {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 }

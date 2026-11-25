@@ -1,0 +1,8 @@
+section.statistics
+  .container
+    p.statistics__eyebrow A few numbers
+    ul.stats
+      each stat in stats
+        li.stats__item
+          strong.stats__value= stat.value
+          span.stats__label= stat.label

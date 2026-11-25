@@ -4,42 +4,23 @@
   picture {
     display: block;
     overflow: hidden;
-    transition: transform 0.25s ease;
   }
 
   picture img {
     width: 100%;
     aspect-ratio: 1.266;
     object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
   }
 
   &__link {
     display: block;
+    overflow: hidden;
 
     @include focus-ring;
 
-    &:hover picture {
-      transform: translateY(rem(-6));
+    &:hover picture img {
+      transform: scale(1.035);
     }
-  }
-
-  &__meta {
-    display: flex;
-    justify-content: space-between;
-    gap: rem(16);
-    padding-top: rem(14);
-  }
-
-  &__title,
-  &__year {
-    font-size: rem(14);
-  }
-
-  &__title {
-    font-weight: 700;
-  }
-
-  &__year {
-    color: var(--color-muted);
   }
 }

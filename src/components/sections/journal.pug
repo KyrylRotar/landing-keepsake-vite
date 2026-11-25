@@ -1,15 +1,17 @@
 section#journal.journal
   .container
-    .section-heading
-      p.section-heading__eyebrow Journal
-      h2.section-heading__title Notes and observations
+    .journal__heading
+      .section-heading
+        p.section-heading__eyebrow Ideas, notes &amp; news
+        h2.section-heading__title From the journal
+      a.journal__all(href='#journal') View all articles
     ul.journal__list
       each post, i in journal
         li.journal__item
-          article
-            if i === 0
-              +picture(post.image, post.title, 800, 632, true).journal__image
-            else
-              +picture(post.image, post.title, 800, 632).journal__image
-            time.journal__date= post.date
-            h3.journal__title= post.title
+          article.journal-card
+            a.journal-card__image(href='#journal', aria-label='Read ' + post.title)
+              +picture(post.image, post.title, 800, 632, i === 0)
+            time.journal-card__date(datetime=post.datetime)= post.date
+            h3.journal-card__title
+              a(href='#journal')= post.title
+            p.journal-card__copy= post.excerpt

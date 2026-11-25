@@ -1,0 +1,6 @@
+section.clients(aria-label='Selected clients')
+  .container
+    p.clients__eyebrow Trusted by good people
+    ul.clients__list
+      each client in clients
+        li.clients__item(class='clients__item--' + client.className)= client.name

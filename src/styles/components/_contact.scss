@@ -1,31 +1,116 @@
 @use '../abstracts' as *;
 
 .contact {
-  padding-block: rem(80);
-  background: var(--color-coral);
+  padding-block: rem(68) rem(24);
+  color: var(--color-white);
+  background: #20211f;
 
   &__inner {
     display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: rem(40) rem(24);
   }
 
-  &__eyebrow {
-    margin-bottom: rem(20);
+  &__brand {
+    grid-column: 1 / -1;
+  }
+
+  &__tagline,
+  &__newsletter p {
+    max-width: rem(240);
+    margin-top: rem(18);
+    color: rgb(255 255 255 / 60%);
+    font-size: rem(13);
+  }
+
+  &__social {
+    display: flex;
+    gap: rem(8);
+    margin-top: rem(22);
+
+    a {
+      display: grid;
+      width: rem(32);
+      height: rem(32);
+      place-items: center;
+      border: 1px solid rgb(255 255 255 / 35%);
+      border-radius: 50%;
+      font-size: rem(11);
+    }
+  }
+
+  &__heading {
+    margin-bottom: rem(18);
     font-size: rem(12);
-    font-weight: 700;
+    font-weight: 500;
     text-transform: uppercase;
   }
 
-  &__title {
-    max-width: rem(850);
-    font-size: clamp(rem(44), 8vw, rem(88));
-    line-height: 0.96;
+  &__links {
+    display: grid;
+    gap: rem(10);
+    color: rgb(255 255 255 / 62%);
+    font-size: rem(13);
+
+    a:hover {
+      color: var(--color-white);
+    }
   }
 
-  &__button {
-    margin-top: rem(32);
+  &__newsletter {
+    grid-column: 1 / -1;
+  }
+
+  &__form {
+    display: flex;
+    max-width: rem(380);
+    margin-top: rem(16);
+    border-bottom: 1px solid rgb(255 255 255 / 40%);
+
+    input {
+      min-width: 0;
+      flex: 1;
+      padding-block: rem(12);
+      color: var(--color-white);
+      border: 0;
+      outline: 0;
+      background: transparent;
+      font: inherit;
+      font-size: rem(13);
+    }
+
+    button {
+      @include button-reset;
+
+      color: inherit;
+      font-size: rem(20);
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    grid-column: 1 / -1;
+    justify-content: space-between;
+    padding-top: rem(20);
+    border-top: 1px solid rgb(255 255 255 / 16%);
+    color: rgb(255 255 255 / 54%);
+    font-size: rem(11);
   }
 
   @include mq(md) {
-    padding-block: rem(120);
+    &__inner {
+      grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+      gap: rem(44);
+    }
+
+    &__brand,
+    &__newsletter,
+    &__bottom {
+      grid-column: auto;
+    }
+
+    &__bottom {
+      grid-column: 1 / -1;
+    }
   }
 }

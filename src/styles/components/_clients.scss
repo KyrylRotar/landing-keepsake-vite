@@ -1,0 +1,45 @@
+@use '../abstracts' as *;
+
+.clients {
+  padding-block: rem(54);
+  border-block: 1px solid rgb(23 25 31 / 12%);
+
+  &__eyebrow {
+    margin-bottom: rem(28);
+    color: var(--color-muted);
+    font-size: rem(11);
+    letter-spacing: 0.14em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: rem(26) rem(44);
+  }
+
+  &__item {
+    font-size: clamp(rem(17), 2vw, rem(25));
+    font-weight: 700;
+    letter-spacing: -0.06em;
+
+    &--ondo,
+    &--goodfolk {
+      font-family: Georgia, serif;
+      font-weight: 400;
+    }
+
+    &--fieldwork {
+      font-size: rem(16);
+      letter-spacing: 0.13em;
+    }
+
+    &--nor {
+      font-family: Georgia, serif;
+      font-weight: 400;
+    }
+  }
+}

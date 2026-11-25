@@ -1,35 +1,60 @@
 @use '../abstracts' as *;
 
 .services {
-  padding-block: rem(80);
-  background: var(--color-white);
+  padding-block: rem(58);
 
   &__list {
-    border-top: 1px solid rgb(23 25 31 / 20%);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: rem(18);
   }
 
   &__item {
-    display: grid;
-    gap: rem(12);
-    padding-block: rem(28);
-    border-bottom: 1px solid rgb(23 25 31 / 20%);
+    min-height: rem(190);
+    padding: rem(20) rem(14);
+    text-align: center;
   }
 
-  &__number,
   &__copy {
     color: var(--color-muted);
+    font-size: rem(14);
   }
 
   &__name {
-    font-size: rem(28);
+    margin-block: rem(14) rem(7);
+    font-size: rem(17);
+    letter-spacing: -0.03em;
+  }
+
+  &__icon {
+    display: grid;
+    width: rem(52);
+    height: rem(52);
+    place-items: center;
+    border: 1px solid rgb(23 25 31 / 24%);
+    border-radius: 50%;
+    margin-inline: auto;
+
+    svg {
+      width: rem(27);
+      fill: none;
+      stroke: currentcolor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.4;
+    }
   }
 
   @include mq(md) {
-    padding-block: rem(120);
+    &__list {
+      grid-template-columns: repeat(2, 1fr);
+      gap: rem(16);
+    }
+  }
 
-    &__item {
-      grid-template-columns: rem(80) 1fr 1fr;
-      align-items: start;
+  @include mq(lg) {
+    &__list {
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 }

@@ -5,7 +5,7 @@
 
   &__eyebrow {
     margin-bottom: rem(12);
-    color: var(--color-coral);
+    color: var(--color-muted);
     font-size: rem(12);
     font-weight: 700;
     text-transform: uppercase;
@@ -13,7 +13,9 @@
 
   &__title {
     max-width: rem(700);
-    font-size: clamp(rem(38), 7vw, rem(72));
-    line-height: 0.98;
+    font-size: clamp(rem(36), 5vw, rem(64));
+    line-height: 1.02;
+    letter-spacing: -0.045em;
+    text-transform: uppercase;
   }
 }
