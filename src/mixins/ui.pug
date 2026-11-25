@@ -58,3 +58,10 @@ mixin work-card(work)
       .work-card__meta
         h3.work-card__title= work.title
         span.work-card__year= work.year
+
+mixin panel(title)
+  section.panel&attributes(attributes)
+    if title
+      h2.panel__title= title
+    .panel__content
+      block

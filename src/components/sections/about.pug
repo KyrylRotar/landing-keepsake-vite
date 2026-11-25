@@ -2,7 +2,8 @@ section#about.about
   .container.about__inner
     p.section-heading__eyebrow About us
     h2.about__title A small team for brands that need to move with purpose.
-    p.about__copy We combine strategy, identity and digital design to turn complex ideas into clear, distinctive experiences.
+    +panel('How we work').about__panel
+      p.about__copy We combine strategy, identity and digital design to turn complex ideas into clear, distinctive experiences.
     ul.stats
       each stat, i in stats
         li.stats__item

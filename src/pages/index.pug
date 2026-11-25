@@ -19,6 +19,10 @@ block data
 block append scripts
   script(type='module', src='/src/main.js')
 
+block prepend styles
+  link(rel='preconnect', href='https://fonts.googleapis.com')
+  link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin)
+
 block header
   include ../components/header
 
