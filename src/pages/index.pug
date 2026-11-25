@@ -1,19 +1,11 @@
 extends ../layouts/main
 
-block fonts
-    include ../includes/fonts
-
 append meta
-    include ../includes/meta
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
 
-block data
-    include ../data/data
-
-block header
-    include ../components/header
+block title
+    title Project
 
 block content
-    include ../components/content
-
-block footer
-    include ../components/footer
+    main
