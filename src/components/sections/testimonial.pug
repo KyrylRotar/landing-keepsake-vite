@@ -1,8 +1,16 @@
-section.testimonial
-  .container.testimonial__inner
-    p.testimonial__quote “Keepsake understood our business from the first conversation. The result feels unmistakably us.”
-    .testimonial__byline
-      span.testimonial__mark “
-      p
+article.testimonial(aria-label='Client testimonial')
+  svg.testimonial__quote-mark(viewBox='0 0 54 44', aria-hidden='true')
+    path(
+      d='M22 2C9 6 2 16 2 30v12h20V24h-9c1-5 5-9 11-12L22 2Zm27 0C36 6 29 16 29 30v12h20V24h-9c1-5 5-9 11-12l-2-10Z'
+    )
+  blockquote.testimonial__quote= testimonial.quote
+  .testimonial__footer
+    .testimonial__person
+      span.testimonial__avatar(aria-hidden='true')= testimonial.initials
+      span.testimonial__identity
         strong= testimonial.name
-        span= testimonial.role
+        small= testimonial.role
+    .testimonial__dots(role='img', aria-label='Slide 1 of 3')
+      span.testimonial__dot.testimonial__dot--current
+      span.testimonial__dot
+      span.testimonial__dot

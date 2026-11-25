@@ -1,24 +1,27 @@
-section#services.services
-  .container
-    .section-heading
-      p.section-heading__eyebrow Thoughtful by design
-      h2.section-heading__title What we do
-    ul.services__list
-      each service, i in services
-        li.services__item
-          span.services__icon(class='services__icon--' + service.icon, aria-hidden='true')
+section#about.services(aria-labelledby='services-title')
+  .container.services__container
+    h2#services-title.services__title What do we do
+    p.services__intro We are a small team of designers and makers who help brands look their best online and offline.
+    .services__grid
+      each service in services
+        article.service-card
+          span.service-card__icon(aria-hidden='true')
             case service.icon
-              when 'identity'
-                svg(viewBox='0 0 48 48')
-                  path(d='M10 12h28v24H10zM16 19h16M16 25h11M16 31h8')
               when 'digital'
-                svg(viewBox='0 0 48 48')
-                  path(d='M9 10h30v22H9zM18 38h12M24 32v6M15 16h18v12H15z')
-              when 'strategy'
-                svg(viewBox='0 0 48 48')
-                  path(d='M24 8v32M8 24h32M13 13l22 22M35 13 13 35')
+                svg.service-card__symbol(viewBox='0 0 48 48')
+                  rect.icon__frame(x='8', y='12', width='32', height='24')
+                  rect.icon__screen(x='13', y='17', width='22', height='14')
+                  rect.icon__accent(x='16', y='20', width='9', height='8')
+              when 'motion'
+                svg.service-card__symbol(viewBox='0 0 48 48')
+                  rect.icon__camera(x='7', y='11', width='34', height='26', rx='5')
+                  rect.icon__screen(x='13', y='16', width='22', height='16', rx='3')
+              when 'print'
+                svg.service-card__symbol(viewBox='0 0 48 48')
+                  rect.icon__stamp(x='14', y='12', width='20', height='17')
+                  rect.icon__base(x='8', y='28', width='32', height='9', rx='2')
               default
-                svg(viewBox='0 0 48 48')
-                  path(d='M12 12h24v24H12zM18 18h12v12H18z')
-          h3.services__name= service.title
-          p.services__copy= service.text
+                svg.service-card__symbol(viewBox='0 0 48 48')
+                  path.icon__heart(d='M24 38 9 23.5C2 15 14 6 24 16 34 6 46 15 39 23.5L24 38Z')
+          h3.service-card__title= service.title
+          p.service-card__description= service.text

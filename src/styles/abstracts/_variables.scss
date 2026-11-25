@@ -1,14 +1,14 @@
 $colors: (
-  'ink': #17191f,
-  'paper': #f7f6f2,
+  'ink': #3a3a3c,
+  'paper': #fff,
   'white': #fff,
-  'coral': #d87b60,
-  'sand': #e9e5db,
-  'muted': #77766f,
+  'coral': #f95858,
+  'sand': #f0f3f4,
+  'muted': #9aa0a6,
 );
-$font-heading: 'Arial', 'Helvetica Neue', sans-serif;
-$font-body: 'Arial', 'Helvetica Neue', sans-serif;
-$container: 1120px;
+$font-heading: 'Oswald', 'Arial Narrow', sans-serif;
+$font-body: 'Open Sans', arial, sans-serif;
+$container: 1100px;
 $spacing: (
   xs: 8px,
   sm: 16px,

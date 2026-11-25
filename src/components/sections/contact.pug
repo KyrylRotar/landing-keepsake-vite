@@ -1,32 +1,38 @@
 footer#contact.contact
-  .container.contact__inner
-    .contact__brand
-      a.logo.logo--footer(href='/landing-keepsake-vite/', aria-label='Keepsake home')
-        include ../../includes/logo
-        span.logo__name Keepsake
-      p.contact__tagline An independent creative studio for a world that won't stand still.
-      ul.contact__social(aria-label='Social media')
+  .container.site-footer__container
+    .site-footer__top
+      .footer-links
+        each column in footerColumns
+          .footer-links__group
+            h2.footer-links__title= column.title
+            each link in column.links
+              a.footer-links__link(href=link.href)= link.text
+      form#newsletter.newsletter-form(action='#newsletter-success', method='get')
+        h2.newsletter-form__title Newsletter
+        p.newsletter-form__intro Fresh case studies and design notes, once a month.
+        .newsletter-form__fields
+          .newsletter-form__email-field
+            label.visually-hidden(for='newsletter-email') Your email address
+            input#newsletter-email.newsletter-form__input(
+              type='email',
+              placeholder='Your email address',
+              autocomplete='email',
+              required,
+              aria-describedby='newsletter-error'
+            )
+            p#newsletter-error.newsletter-form__error Please enter a valid email address.
+          label.newsletter-form__consent(for='newsletter-consent')
+            input#newsletter-consent(type='checkbox', required)
+            span I agree to the privacy policy
+          button.button.button--primary.newsletter-form__submit(type='submit') Subscribe
+        p#newsletter-success.newsletter-form__success(role='status')
+          span.newsletter-form__success-check(aria-hidden='true') ✓
+          span Thanks for your interest.
+    .site-footer__bottom
+      p.site-footer__copyright © #{ new Date().getFullYear() } Keepsake. All rights reserved.
+      .social-links(role='group', aria-label='Social media')
         each social in socials
-          li
-            a(href=social.href, target='_blank', rel='noopener', aria-label=social.label)= social.short
-    each column in footerColumns
-      .contact__column
-        h2.contact__heading= column.title
-        ul.contact__links
-          each link in column.links
-            li
-              a(
-                href=link.href,
-                target=link.external ? '_blank' : undefined,
-                rel=link.external ? 'noopener' : undefined
-              )= link.text
-    .contact__newsletter
-      h2.contact__heading Keep in touch
-      p Get occasional notes from the studio.
-      form.contact__form(action='mailto:hello@keepsake.design', method='post', enctype='text/plain')
-        label.visually-hidden(for='newsletter-email') Your email address
-        input#newsletter-email(type='email', name='email', placeholder='Your email address', required)
-        button(type='submit', aria-label='Subscribe') →
-    .contact__bottom
-      p © #{ new Date().getFullYear() } Keepsake Studio
-      a(href='#top') Back to top ↑
+          a(class='social-links__link social-links__link--' + social.className, href=social.href, aria-label=social.label)= social.short
+a.back-to-top(href='#top', aria-label='Back to top')
+  svg.back-to-top__icon(viewBox='0 0 24 24', aria-hidden='true')
+    path(d='m5 14 7-7 7 7M12 7v12')

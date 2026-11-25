@@ -3,42 +3,49 @@
 .button {
   @include flex-center;
 
-  min-height: rem(38);
-  width: fit-content;
-  gap: rem(16);
-  padding-inline: rem(16);
-  color: var(--color-white);
-  background: var(--color-ink);
-  border: 1px solid var(--color-ink);
-  font-size: rem(11);
-  font-weight: 700;
+  min-height: rem(42);
+  gap: rem(7);
+  padding-inline: rem(22);
+  color: inherit;
+  border: 1px solid transparent;
+  background: transparent;
+  font-family: var(--font-display);
+  font-size: rem(13);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  line-height: 1.1;
+  text-align: center;
+  text-transform: uppercase;
+  transition:
+    color 0.18s ease,
+    background 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.18s ease;
 
   @include focus-ring;
 
-  &:hover {
+  &--primary {
     color: var(--color-white);
-    background: var(--color-coral);
-    border-color: var(--color-coral);
-  }
+    background: var(--color-accent);
 
-  &__arrow {
-    font-style: normal;
-  }
-
-  &--light {
-    color: var(--color-ink);
-    background: var(--color-white);
-    border-color: var(--color-white);
+    &:hover {
+      background: var(--color-accent-hover);
+    }
   }
 
   &--outline {
-    color: var(--color-ink);
-    background: transparent;
+    color: var(--color-text-dark);
+    background: var(--color-white);
+    border-color: #d4d9dc;
 
     &:hover {
-      color: var(--color-white);
-      background: var(--color-ink);
-      border-color: var(--color-ink);
+      color: var(--color-accent);
+      border-color: var(--color-accent);
     }
+  }
+
+  &--light {
+    color: var(--color-text-dark);
+    background: var(--color-white);
   }
 }

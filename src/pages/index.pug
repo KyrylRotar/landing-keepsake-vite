@@ -1,11 +1,16 @@
 extends ../layouts/main
 
 block append meta
-  meta(name='description', content='Keepsake is an independent creative studio.')
-  meta(property='og:title', content='Keepsake — Creative Studio')
+  meta(name='theme-color', content='#ffffff')
+  meta(
+    name='description',
+    content='Keepsake is an independent digital and branding agency making thoughtful identities, websites and printed things.'
+  )
+  meta(property='og:title', content='Keepsake — Digital & Branding Agency')
+  meta(property='og:type', content='website')
 
 block title
-  title Keepsake — Creative Studio
+  title Keepsake — Digital & Branding Agency
 
 block data
   include ../data/navigation
@@ -24,6 +29,10 @@ block append scripts
 block prepend styles
   link(rel='preconnect', href='https://fonts.googleapis.com')
   link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin)
+  link(
+    href='https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Open+Sans:wght@300;400;700&family=Oswald:wght@300;400;700&display=swap',
+    rel='stylesheet'
+  )
 
 block header
   include ../components/header
@@ -35,7 +44,6 @@ block content
   include ../components/sections/services
   include ../components/sections/statistics
   include ../components/sections/clients
-  include ../components/sections/testimonial
   include ../components/sections/journal
 
 block footer

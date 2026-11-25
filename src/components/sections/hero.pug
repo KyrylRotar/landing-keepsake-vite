@@ -1,8 +1,30 @@
-section.hero
-  .container.hero__inner
-    p.hero__eyebrow Independent creative studio
-    h1.hero__title We're Keepsake, a digital &amp; branding agency
-    p.hero__copy We make meaningful brands and digital experiences for a changing world.
-    .hero__actions
-      +btn('View our work', '#works').button--primary
-      +btn('Get in touch', '#contact').button--outline
+section.hero(aria-labelledby='hero-title')
+  .container.hero__content
+    .hero__text
+      h1#hero-title.hero__title We're Keepsake, a digital &amp; branding agency
+      p.hero__copy Specializing in web design, poster and motion. We love turning ideas into beautiful things.
+      .hero__actions
+        +btn('See our works', '#works').button--primary
+        +btn('Get in touch', '#contact').button--outline
+    picture.hero__media
+      source(
+        type='image/avif',
+        srcset='/src/assets/images/hero-400.avif 400w, /src/assets/images/hero-800.avif 800w',
+        sizes='(min-width: 1280px) 420px, (min-width: 768px) 520px, calc(100vw - 40px)'
+      )
+      source(
+        type='image/webp',
+        srcset='/src/assets/images/hero-400.webp 400w, /src/assets/images/hero-800.webp 800w',
+        sizes='(min-width: 1280px) 420px, (min-width: 768px) 520px, calc(100vw - 40px)'
+      )
+      img.hero__image(
+        src='/src/assets/images/hero-800.jpg',
+        srcset='/src/assets/images/hero-400.jpg 400w, /src/assets/images/hero-800.jpg 800w',
+        sizes='(min-width: 1280px) 420px, (min-width: 768px) 520px, calc(100vw - 40px)',
+        alt='Keepsake studio still life with printed artwork and design objects',
+        width='800',
+        height='533',
+        decoding='async',
+        loading='eager',
+        fetchpriority='high'
+      )

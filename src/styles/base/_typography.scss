@@ -4,14 +4,59 @@
   @each $name, $value in $colors {
     --color-#{$name}: #{$value};
   }
+
+  --color-accent: #f95858;
+  --color-accent-hover: #e44646;
+  --color-teal: #2cd5c4;
+  --color-text-dark: #3a3a3c;
+  --color-text: #666a6e;
+  --color-bg-light: #f0f3f4;
+  --color-border: #e1e5e8;
+  --color-footer: #2a2a2d;
+  --color-footer-divider: #3d3d40;
+  --color-footer-muted: #a3a5aa;
+  --color-footer-copy: #777a80;
+  --color-input-border: #48494d;
+  --color-input-bg: #38383c;
+  --color-input-muted: #898c91;
+  --color-grey-border: #c4cbd0;
+  --color-grey-divider: #c7cbd0;
+  --font-display: 'Oswald', 'Arial Narrow', sans-serif;
+  --font-body: 'Open Sans', arial, sans-serif;
+  --font-script: 'Dancing Script', cursive;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 116px;
 }
 
 body {
+  padding-top: 64px;
   font-family: $font-body;
-  color: var(--color-ink);
-  background: var(--color-paper);
-  font-size: rem(16);
-  line-height: 1.5;
+  color: var(--color-text);
+  background: var(--color-white);
+  font-size: rem(14);
+  line-height: 1.6;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  color: inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--color-teal);
+  outline-offset: 3px;
 }
 
 .visually-hidden {

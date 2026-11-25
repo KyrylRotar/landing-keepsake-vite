@@ -1,16 +1,26 @@
-section#works.works
-  .container
-    .works__heading
-      h2.works__title Our selected work
-      .works__filters(aria-label='Filter portfolio')
-        each category in categories
-          label.works__filter(class={ 'works__filter--active': category.active })
-            input.visually-hidden(type='radio', name='portfolio-filter', value=category.value, checked=category.active)
-            span= category.label
-    ul.works__grid
+section#works.works(aria-labelledby='works-title')
+  .container.works__container
+    .works__heading-row
+      h2#works-title.works__title Our awesome works
+      .works__filter-viewport(role='group', aria-label='Filter works by category')
+        .works__filter-row
+          each category in categories
+            label.works__filter-chip(class={ 'works__filter-chip--active': category.active })
+              input.works__filter-control.visually-hidden(
+                type='radio',
+                name='portfolio-filter',
+                value=category.value,
+                checked=category.active
+              )
+              span= category.label
+    .works__grid
       each work, i in works
-        li.works__item(data-category=work.category)
-          a.work-card(href='#contact', aria-label='View ' + work.title)
-            +picture(work.image, work.alt, 800, 632, i === 0)
+        article.work-card(data-category=work.category)
+          +picture(work.image, work.alt, 800, 632, i === 0)
+          a.work-card__overlay(href='#contact', aria-label='View ' + work.title + ', ' + work.categoryLabel)
+            span.work-card__plus(aria-hidden='true') +
+            h3.work-card__name= work.title
+            span.work-card__rule(aria-hidden='true')
+            span.work-card__category= work.categoryLabel
     .works__more
-      +btn('See all work', '#contact').button--outline
+      +btn('Load more works', '#contact').button--outline

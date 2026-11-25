@@ -1,51 +1,102 @@
 @use '../abstracts' as *;
 
 .testimonial {
-  padding-block: rem(88);
-  background: #e9e5db;
+  padding: rem(24);
+  background: var(--color-bg-light);
 
-  &__inner {
-    display: grid;
-    gap: rem(28);
+  &__quote-mark {
+    display: block;
+    width: rem(28);
+    height: rem(24);
+    fill: var(--color-accent);
   }
 
   &__quote {
-    max-width: rem(900);
-    font-size: clamp(rem(30), 5vw, rem(54));
-    line-height: 1.12;
-    letter-spacing: -0.055em;
+    margin: rem(18) 0 rem(15);
+    color: var(--color-text);
+    font-size: rem(16);
+    font-weight: 300;
+    line-height: 1.6;
   }
 
-  &__byline {
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: rem(15);
+  }
+
+  &__person {
     display: flex;
     align-items: center;
     gap: rem(14);
+  }
 
-    p {
-      display: grid;
-      gap: rem(3);
-      font-size: rem(13);
+  &__avatar {
+    display: grid;
+    width: rem(48);
+    height: rem(48);
+    flex: none;
+    place-items: center;
+    border-radius: 50%;
+    color: var(--color-white);
+    background: var(--color-teal);
+    font-family: var(--font-display);
+    font-size: rem(18);
+  }
+
+  &__identity {
+    strong,
+    small {
+      display: block;
     }
 
-    span:not(.testimonial__mark) {
-      color: var(--color-muted);
-      font-size: rem(12);
+    strong {
+      color: var(--color-text-dark);
+      font-family: var(--font-display);
+      font-size: rem(13);
+      letter-spacing: rem(1);
+      text-transform: uppercase;
+    }
+
+    small {
+      color: var(--color-text);
     }
   }
 
-  &__mark {
-    color: var(--color-coral);
-    font-family: Georgia, serif;
-    font-size: rem(56);
-    line-height: 1;
+  &__dots {
+    display: flex;
+    gap: rem(8);
+    margin-left: auto;
+  }
+
+  &__dot {
+    display: block;
+    width: rem(8);
+    height: rem(4);
+    background: #cbd1d5;
+
+    &--current {
+      width: rem(24);
+      background: var(--color-accent);
+    }
   }
 
   @include mq(md) {
-    padding-block: rem(112);
+    padding: rem(28) rem(48) rem(32);
 
-    &__inner {
-      grid-template-columns: 1fr rem(240);
-      align-items: end;
+    &__quote-mark {
+      width: rem(30);
+      height: rem(26);
+    }
+
+    &__quote {
+      margin-block: rem(22) rem(18);
+    }
+
+    &__footer {
+      flex-direction: row;
+      align-items: center;
     }
   }
 }

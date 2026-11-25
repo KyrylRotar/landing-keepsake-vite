@@ -1,45 +1,115 @@
 @use '../abstracts' as *;
 
 .clients {
-  padding-block: rem(54);
-  border-block: 1px solid rgb(23 25 31 / 12%);
+  padding-block: rem(56);
 
-  &__eyebrow {
-    margin-bottom: rem(28);
-    color: var(--color-muted);
-    font-size: rem(11);
-    letter-spacing: 0.14em;
-    text-align: center;
-    text-transform: uppercase;
-  }
-
-  &__list {
-    display: flex;
-    flex-wrap: wrap;
+  &__title {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: rem(26) rem(44);
+    gap: rem(13);
+    margin: 0;
+    color: var(--color-text-dark);
+    font-family: var(--font-display);
+    font-size: rem(18);
+    font-weight: 400;
+    letter-spacing: rem(1.5);
+    line-height: 1.35;
+    text-transform: uppercase;
+
+    &::after {
+      display: inline-block;
+      width: rem(16);
+      height: 2px;
+      background: var(--color-accent);
+      content: '';
+    }
   }
 
-  &__item {
-    font-size: clamp(rem(17), 2vw, rem(25));
-    font-weight: 700;
-    letter-spacing: -0.06em;
+  &__intro {
+    margin-top: rem(13);
+    color: var(--color-text);
+    font-size: rem(14);
+    line-height: rem(22);
+  }
 
-    &--ondo,
-    &--goodfolk {
-      font-family: Georgia, serif;
-      font-weight: 400;
+  &__logos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    place-items: center;
+    gap: rem(20) rem(16);
+    margin: rem(28) 0 rem(24);
+    padding: 0;
+    list-style: none;
+  }
+
+  &__logo {
+    color: #b9bec4;
+    font-size: rem(20);
+    line-height: 1;
+    white-space: nowrap;
+
+    &--nordly,
+    &--arco,
+    &--ostra {
+      font-family: var(--font-display);
     }
 
-    &--fieldwork {
-      font-size: rem(16);
-      letter-spacing: 0.13em;
+    &--nordly {
+      font-size: rem(22);
+      font-weight: 700;
+      letter-spacing: rem(1);
     }
 
-    &--nor {
+    &--halcyon,
+    &--vela {
       font-family: Georgia, serif;
-      font-weight: 400;
+    }
+
+    &--halcyon {
+      font-size: rem(22);
+      letter-spacing: rem(1);
+    }
+
+    &--arco {
+      font-size: rem(21);
+      font-weight: 300;
+      letter-spacing: rem(2);
+    }
+
+    &--pinewood {
+      font-size: rem(21);
+      font-weight: 700;
+      letter-spacing: rem(1);
+    }
+
+    &--vela {
+      font-size: rem(21);
+      font-weight: 700;
+      letter-spacing: rem(1);
+    }
+
+    &--ostra {
+      font-size: rem(19);
+      letter-spacing: rem(1);
+    }
+  }
+
+  @include mq(md) {
+    padding-block: rem(72);
+
+    &__logos {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: rem(30) rem(18);
+      margin-block: rem(34) rem(28);
+    }
+  }
+
+  @include mq(lg) {
+    padding-block: rem(90);
+
+    &__logos {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: rem(20);
     }
   }
 }

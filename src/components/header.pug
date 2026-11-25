@@ -1,20 +1,38 @@
-header.header
-  .container.header__inner
-    a.logo(href='/landing-keepsake-vite/', aria-label='Keepsake home')
-      include ../includes/logo
-      span.logo__name Keepsake
-    nav#site-navigation.header__nav(aria-label='Primary navigation')
-      ul.header__list
-        each item, i in navigation
-          li.header__item
-            a.header__link(href=item.href)= item.text
-    +btn("Let's talk", '#contact').header__button.button--primary
+header.site-header
+  .container.site-header__inner
+    a.brand(href='#top', aria-label='Keepsake home')
+      span.brand__mark(aria-hidden='true') K
+      span.brand__name eepsake
+    nav.primary-nav(aria-label='Main navigation')
+      each item, i in navigation
+        a.primary-nav__link(
+          class={ 'primary-nav__link--active': i === 0 },
+          href=item.href,
+          aria-current=i === 0 ? 'page' : undefined
+        )= item.text
+      a.primary-nav__favourites(href='#works', aria-label='Favourites')
+        svg.primary-nav__icon(viewBox='0 0 24 24', aria-hidden='true')
+          path(
+            d='M20.8 4.7a5.4 5.4 0 0 0-7.6 0L12 5.9l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6l1.2 1.2L12 21l7.6-7.5 1.2-1.2a5.4 5.4 0 0 0 0-7.6Z'
+          )
     button.header__menu(
       type='button',
       aria-label='Open navigation',
-      aria-controls='site-navigation',
+      aria-controls='mobile-navigation',
       aria-expanded='false'
     )
-      span
-      span
-      span
+      span.header__menu-line(aria-hidden='true')
+      span.header__menu-line(aria-hidden='true')
+    #mobile-navigation.header__mobile-panel
+      nav.mobile-nav(aria-label='Mobile navigation')
+        each item, i in navigation
+          a.mobile-nav__link(href=item.href)
+            span= item.text
+            span.mobile-nav__chevron(aria-hidden='true') ›
+      .header__mobile-actions
+        +btn('Contact us', '#contact').button--primary
+        +btn('Favourites', '#works').button--outline
+      .header__mobile-contact
+        span.header__mobile-contact-label Say hello
+        a(href='mailto:hello@keepsake.studio') hello@keepsake.studio
+        a(href='tel:+442079460000') +44 20 7946 0000

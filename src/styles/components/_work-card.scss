@@ -1,26 +1,75 @@
 @use '../abstracts' as *;
 
 .work-card {
+  position: relative;
+  min-width: 0;
+  aspect-ratio: 1 / 0.72;
+  overflow: hidden;
+  background: #e7e8e8;
+
   picture {
+    position: absolute;
+    inset: 0;
     display: block;
-    overflow: hidden;
   }
 
   picture img {
+    display: block;
     width: 100%;
-    aspect-ratio: 1.266;
+    height: 100%;
     object-fit: cover;
-    transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
   }
 
-  &__link {
-    display: block;
-    overflow: hidden;
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: rem(16);
+    color: var(--color-white);
+    background: rgb(30 32 36 / 82%);
+    opacity: 0;
+    text-align: center;
+    transition: opacity 0.18s ease;
+  }
 
-    @include focus-ring;
+  &:hover &__overlay,
+  &:focus-within &__overlay {
+    opacity: 1;
+  }
 
-    &:hover picture img {
-      transform: scale(1.035);
-    }
+  &__plus {
+    display: grid;
+    width: rem(44);
+    height: rem(44);
+    place-items: center;
+    margin-bottom: rem(10);
+    border-radius: 50%;
+    color: var(--color-white);
+    background: var(--color-teal);
+    font-size: rem(32);
+    line-height: 1;
+  }
+
+  &__name {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: rem(18);
+    letter-spacing: rem(1);
+    text-transform: uppercase;
+  }
+
+  &__rule {
+    width: rem(30);
+    height: 2px;
+    margin-block: rem(8);
+    background: var(--color-accent);
+  }
+
+  &__category {
+    color: var(--color-teal);
+    font-size: rem(13);
   }
 }

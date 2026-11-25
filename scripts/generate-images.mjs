@@ -5,57 +5,57 @@ const output = 'src/assets/images';
 const artwork = [
   {
     name: 'work-01',
-    kind: 'coffee',
-    title: 'CAFÉ LOU',
-    colors: ['#ddd2c0', '#573f36', '#f7f1e7'],
+    kind: 'tag',
+    title: 'STUDIO TAG',
+    colors: ['#a7cfc9', '#314c49', '#f5ead6'],
   },
   {
     name: 'work-02',
-    kind: 'coast',
-    title: 'ONDA',
-    colors: ['#c5d8d1', '#517267', '#f8f2e7'],
+    kind: 'piece',
+    title: 'PIECE PAPER',
+    colors: ['#f0efec', '#292a2c', '#d96652'],
   },
   {
     name: 'work-03',
-    kind: 'sun',
-    title: 'SUNDAY SUPPLY',
-    colors: ['#f2c95f', '#dc684b', '#f8eed8'],
+    kind: 'record',
+    title: 'VINYL HOUSE',
+    colors: ['#32373d', '#17191d', '#f3e8d7'],
   },
   {
     name: 'work-04',
-    kind: 'botanical',
-    title: 'FORMA BOTANICA',
-    colors: ['#596750', '#e3b68c', '#f4e9d8'],
+    kind: 'volume',
+    title: 'VOLUME 16',
+    colors: ['#d5c5b3', '#3e4650', '#f4e8d4'],
   },
   {
     name: 'work-05',
-    kind: 'atelier',
-    title: 'ATELIER NO. 8',
-    colors: ['#d2c8bc', '#252526', '#f5f1e9'],
+    kind: 'profile',
+    title: 'PROFILE UI',
+    colors: ['#d88f7d', '#3e4c54', '#f5f1e8'],
   },
   {
     name: 'work-06',
-    kind: 'wellness',
-    title: 'GOOD HABIT',
-    colors: ['#e7b5a9', '#814b47', '#f7eee3'],
+    kind: 'cards',
+    title: 'PAPER FORMS',
+    colors: ['#f0efec', '#2d5554', '#e9c66c'],
   },
   {
     name: 'work-07',
-    kind: 'field',
-    title: 'FIELD NOTES',
-    colors: ['#a9b5b1', '#344a46', '#eee9db'],
+    kind: 'wall',
+    title: 'WALL STREET',
+    colors: ['#d8dcda', '#2e454c', '#c85c50'],
   },
   {
     name: 'work-08',
-    kind: 'common',
-    title: 'COMMON GROUND',
-    colors: ['#bd6955', '#f0d9b8', '#372f29'],
+    kind: 'john',
+    title: 'JOHN DOE',
+    colors: ['#41474c', '#272b30', '#e9cfb8'],
   },
   {
     name: 'work-09',
-    kind: 'home',
-    title: 'THE MODERN HOME',
-    colors: ['#d8d0c3', '#59615c', '#f3eee6'],
+    kind: 'fabric',
+    title: 'SEAL FABRIC',
+    colors: ['#3b4651', '#e8e2d7', '#b55c50'],
   },
   {
     name: 'journal-01',
@@ -86,6 +86,108 @@ const artwork = [
 function artworkSvg({ kind, title, colors }) {
   const [background, ink, paper] = colors;
   const designs = {
+    tag: `
+      <rect x="0" y="0" width="800" height="632" fill="${background}"/>
+      <circle cx="640" cy="114" r="95" fill="${paper}" opacity=".28"/>
+      <path d="M173 94h358l78 82v308H173z" fill="${paper}" transform="rotate(-8 173 94)"/>
+      <path d="m485 112 83 77-104 13z" fill="#e2d8c6"/>
+      <circle cx="260" cy="172" r="11" fill="${background}"/>
+      <text x="238" y="277" fill="${ink}" font-size="35" letter-spacing="6">${title}</text>
+      <text x="239" y="311" fill="${ink}" font-size="14" letter-spacing="4">DESIGN FOR EVERY DAY</text>
+      <path d="M245 358c55-43 97-43 152 0-55 43-97 43-152 0z" fill="none" stroke="${ink}" stroke-width="4"/>
+      <path d="M265 421h208M265 439h142" stroke="${ink}" stroke-width="3" opacity=".55"/>
+      <path d="M505 493 603 534" stroke="${ink}" stroke-width="5"/>`,
+    piece: `
+      <rect width="800" height="632" fill="${background}"/>
+      <rect x="99" y="78" width="393" height="485" fill="${paper}" transform="rotate(-5 99 78)"/>
+      <rect x="300" y="140" width="405" height="302" fill="#e4e0da" transform="rotate(4 300 140)"/>
+      <text x="152" y="296" fill="${ink}" font-size="70" font-weight="700" letter-spacing="-2" transform="rotate(-5 152 296)">PIECE</text>
+      <text x="151" y="360" fill="${paper}" stroke="${ink}" stroke-width="1" font-size="67" font-weight="700" letter-spacing="-2" transform="rotate(-5 151 360)">PAPER</text>
+      <path d="M365 220h235M365 241h177M365 262h208" stroke="${ink}" stroke-width="3" opacity=".65"/>
+      <circle cx="610" cy="386" r="33" fill="${background}"/>`,
+    record: `
+      <rect width="800" height="632" fill="${background}"/>
+      <rect x="68" y="77" width="664" height="478" fill="#42484d"/>
+      <circle cx="391" cy="316" r="205" fill="${ink}"/>
+      <circle cx="391" cy="316" r="177" fill="none" stroke="#52565a" stroke-width="3"/>
+      <circle cx="391" cy="316" r="144" fill="none" stroke="#52565a" stroke-width="2"/>
+      <circle cx="391" cy="316" r="108" fill="none" stroke="#52565a" stroke-width="2"/>
+      <circle cx="391" cy="316" r="72" fill="${paper}"/>
+      <circle cx="391" cy="316" r="10" fill="${ink}"/>
+      <text x="347" y="307" fill="${ink}" font-size="14" letter-spacing="3">SIDE A</text>
+      <text x="338" y="332" fill="${ink}" font-size="11" letter-spacing="2">STUDIO 04</text>
+      <path d="M530 168 691 124v95l-161 44z" fill="${paper}"/>
+      <text x="553" y="189" fill="${ink}" font-size="14" letter-spacing="2">VINYL</text>`,
+    volume: `
+      <rect width="800" height="632" fill="${background}"/>
+      <rect x="83" y="80" width="422" height="457" fill="${paper}" transform="rotate(4 83 80)"/>
+      <path d="M546 125h124v382H546z" fill="${ink}" transform="rotate(9 546 125)"/>
+      <text x="143" y="197" fill="${ink}" font-size="18" letter-spacing="5">AN INDEPENDENT JOURNAL</text>
+      <text x="142" y="310" fill="${ink}" font-size="71" font-weight="700" letter-spacing="-3">VOL.</text>
+      <text x="142" y="390" fill="${ink}" font-size="89" font-weight="700" letter-spacing="-5">16</text>
+      <path d="M145 426h269" stroke="${paper}" stroke-width="2"/>
+      <text x="148" y="468" fill="${ink}" font-size="16" letter-spacing="4">${title}</text>
+      <circle cx="606" cy="314" r="31" fill="${paper}"/>`,
+    profile: `
+      <rect width="800" height="632" fill="${background}"/>
+      <rect x="91" y="80" width="350" height="462" rx="8" fill="${paper}"/>
+      <rect x="91" y="80" width="350" height="66" rx="8" fill="${ink}"/>
+      <circle cx="131" cy="112" r="11" fill="#efb25e"/>
+      <circle cx="163" cy="112" r="11" fill="#83c995"/>
+      <circle cx="195" cy="112" r="11" fill="#e87b6d"/>
+      <circle cx="265" cy="224" r="56" fill="#c6d9db"/>
+      <circle cx="265" cy="207" r="20" fill="${ink}"/>
+      <path d="M221 254c12-37 76-37 88 0" fill="${ink}"/>
+      <text x="181" y="315" fill="${ink}" font-size="24" letter-spacing="3">${title}</text>
+      <rect x="148" y="345" width="234" height="12" rx="6" fill="#d9dddc"/>
+      <rect x="172" y="374" width="186" height="12" rx="6" fill="#d9dddc"/>
+      <rect x="191" y="420" width="148" height="41" rx="20" fill="${background}"/>
+      <rect x="481" y="185" width="223" height="309" rx="6" fill="${ink}"/>
+      <rect x="500" y="211" width="185" height="196" fill="${paper}"/>
+      <path d="M516 365c35-56 68-56 103 0 24-37 43-43 61-26v68H516z" fill="#83b49c"/>
+      <path d="M500 433h185" stroke="${paper}" stroke-width="3"/>`,
+    cards: `
+      <rect width="800" height="632" fill="${background}"/>
+      <circle cx="652" cy="117" r="122" fill="${paper}" opacity=".55"/>
+      <rect x="105" y="141" width="354" height="274" fill="${ink}" transform="rotate(-8 105 141)"/>
+      <rect x="348" y="215" width="335" height="247" fill="${paper}" transform="rotate(7 348 215)"/>
+      <rect x="151" y="384" width="357" height="147" fill="${paper}" transform="rotate(-3 151 384)"/>
+      <text x="160" y="249" fill="${paper}" font-size="26" letter-spacing="4">PAPER FORMS</text>
+      <path d="M162 281h183M162 301h137" stroke="${paper}" stroke-width="3" opacity=".65"/>
+      <circle cx="567" cy="322" r="56" fill="${background}"/>
+      <text x="176" y="470" fill="${ink}" font-size="24" letter-spacing="5">FORM / FUNCTION</text>
+      <path d="M175 492h219" stroke="${ink}" stroke-width="2"/>`,
+    wall: `
+      <rect width="800" height="632" fill="${background}"/>
+      <path d="M0 470h800v162H0z" fill="#c6cbc8"/>
+      <rect x="120" y="75" width="316" height="439" fill="${paper}" transform="rotate(-4 120 75)"/>
+      <rect x="468" y="132" width="216" height="310" fill="${ink}" transform="rotate(5 468 132)"/>
+      <text x="169" y="187" fill="${ink}" font-size="18" letter-spacing="5">A PLACE TO</text>
+      <text x="163" y="260" fill="${ink}" font-size="62" font-weight="700" letter-spacing="-3">MAKE</text>
+      <text x="162" y="322" fill="${ink}" font-size="62" font-weight="700" letter-spacing="-3">GOOD</text>
+      <text x="162" y="384" fill="${ink}" font-size="62" font-weight="700" letter-spacing="-3">THINGS</text>
+      <text x="501" y="276" fill="${paper}" font-size="21" letter-spacing="4">WALL</text>
+      <text x="501" y="311" fill="${paper}" font-size="21" letter-spacing="4">STREET</text>
+      <circle cx="568" cy="366" r="30" fill="${background}"/>`,
+    john: `
+      <rect width="800" height="632" fill="${background}"/>
+      <rect x="88" y="117" width="379" height="365" fill="${paper}" transform="rotate(-8 88 117)"/>
+      <rect x="380" y="183" width="311" height="243" fill="${ink}" transform="rotate(7 380 183)"/>
+      <circle cx="568" cy="292" r="68" fill="${paper}"/>
+      <path d="M456 380h192" stroke="${paper}" stroke-width="3"/>
+      <text x="145" y="259" fill="${ink}" font-size="42" font-weight="700" letter-spacing="2">JOHN</text>
+      <text x="145" y="307" fill="${ink}" font-size="42" font-weight="700" letter-spacing="2">DOE</text>
+      <text x="148" y="351" fill="${ink}" font-size="15" letter-spacing="3">DESIGNER / MAKER</text>
+      <path d="M150 386h203M150 404h167" stroke="${ink}" stroke-width="2" opacity=".6"/>`,
+    fabric: `
+      <rect width="800" height="632" fill="${background}"/>
+      <path d="M83 171h634v289H83z" fill="${ink}" transform="rotate(-5 83 171)"/>
+      <path d="M121 205h558v218H121z" fill="none" stroke="${paper}" stroke-width="4" transform="rotate(-5 121 205)"/>
+      <text x="185" y="313" fill="${paper}" font-size="43" font-weight="700" letter-spacing="5" transform="rotate(-5 185 313)">SEAL FABRIC</text>
+      <circle cx="592" cy="387" r="58" fill="${background}"/>
+      <circle cx="592" cy="387" r="42" fill="none" stroke="${paper}" stroke-width="3"/>
+      <path d="M570 387h44M592 365v44" stroke="${paper}" stroke-width="3"/>
+      <path d="M102 504h250M102 521h174" stroke="${paper}" stroke-width="3" opacity=".45"/>`,
     coffee: `
       <circle cx="590" cy="170" r="115" fill="${paper}" opacity=".72"/>
       <rect x="113" y="106" width="270" height="420" rx="8" fill="${paper}" transform="rotate(-7 113 106)"/>
@@ -197,6 +299,47 @@ function artworkSvg({ kind, title, colors }) {
 }
 
 await mkdir(output, { recursive: true });
+
+const heroSvg = Buffer.from(`
+  <svg xmlns="http://www.w3.org/2000/svg" width="800" height="533" viewBox="0 0 800 533">
+    <rect width="800" height="533" fill="#d9e2df"/>
+    <path d="M0 400c130-35 229-23 347 18s272 46 453-21v136H0z" fill="#bacbc5"/>
+    <circle cx="616" cy="135" r="112" fill="#f3d9ae"/>
+    <rect x="83" y="59" width="360" height="430" rx="3" fill="#f7f3e8" transform="rotate(-7 83 59)"/>
+    <path d="M125 131h183v10H125z" fill="#f95858"/>
+    <text x="128" y="220" fill="#3a3a3c" font-family="Arial,sans-serif" font-size="26" letter-spacing="5">KEEPSAKE</text>
+    <text x="128" y="255" fill="#666a6e" font-family="Arial,sans-serif" font-size="12" letter-spacing="3">IDEAS INTO BEAUTIFUL THINGS</text>
+    <path d="M131 299h214M131 314h164M131 329h189" stroke="#b8b2a7" stroke-width="2"/>
+    <circle cx="558" cy="338" r="149" fill="#34363a"/>
+    <circle cx="558" cy="338" r="94" fill="#25272b"/>
+    <circle cx="558" cy="338" r="42" fill="#f2c95f"/>
+    <circle cx="558" cy="338" r="8" fill="#34363a"/>
+    <path d="M532 313h52v50h-52z" fill="#f7f3e8"/>
+    <text x="538" y="343" fill="#3a3a3c" font-family="Arial,sans-serif" font-size="7" letter-spacing="1">KS STUDIO</text>
+    <rect x="373" y="153" width="96" height="212" fill="#f4c75e" transform="rotate(8 373 153)"/>
+    <text x="411" y="236" fill="#3a3a3c" font-family="Arial,sans-serif" font-size="12" letter-spacing="2" transform="rotate(8 411 236)">MAKE</text>
+    <text x="410" y="258" fill="#3a3a3c" font-family="Arial,sans-serif" font-size="12" letter-spacing="2" transform="rotate(8 410 258)">GOOD</text>
+    <text x="409" y="280" fill="#3a3a3c" font-family="Arial,sans-serif" font-size="12" letter-spacing="2" transform="rotate(8 409 280)">THINGS</text>
+    <path d="M92 443c30-36 56-46 87-44-13 34-40 51-87 44zm28 18c38-17 68-17 99-2-29 21-62 23-99 2z" fill="#6f8b7b"/>
+    <path d="M124 470c19-33 36-54 57-71" fill="none" stroke="#526d60" stroke-width="3"/>
+  </svg>
+`);
+
+for (const width of [400, 800]) {
+  const image = sharp(heroSvg).resize(width, Math.round((width * 533) / 800));
+  await image
+    .clone()
+    .jpeg({ quality: 84 })
+    .toFile(`${output}/hero-${width}.jpg`);
+  await image
+    .clone()
+    .webp({ quality: 84 })
+    .toFile(`${output}/hero-${width}.webp`);
+  await image
+    .clone()
+    .avif({ quality: 58 })
+    .toFile(`${output}/hero-${width}.avif`);
+}
 
 for (const item of artwork) {
   const svg = Buffer.from(artworkSvg(item));
