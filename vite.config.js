@@ -4,6 +4,9 @@ import path from 'path';
 
 export default {
   base: '/landing-keepsake-vite/',
+  build: {
+    assetsInlineLimit: 0,
+  },
   plugins: [
     vituum({
       imports: {

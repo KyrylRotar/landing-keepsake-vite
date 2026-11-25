@@ -53,7 +53,7 @@ mixin picture(image, alt, width = 800, height = 632, eager = false)
 
 mixin work-card(work)
   article.work-card&attributes(attributes)
-    a.work-card__link(href='#contact', aria-label='View #{work.title}')
+    a.work-card__link(href='#contact', aria-label='View ' + work.title)
       +picture(work.image, work.alt, 800, 632)
       .work-card__meta
         h3.work-card__title= work.title
