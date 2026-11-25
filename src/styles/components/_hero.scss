@@ -1,0 +1,70 @@
+@use '../abstracts' as *;
+
+.hero {
+  padding-block: rem(48) rem(64);
+  overflow: hidden;
+
+  &__inner {
+    min-height: rem(390);
+  }
+
+  &__eyebrow {
+    margin-bottom: rem(24);
+    color: var(--color-coral);
+    font-size: rem(12);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    max-width: rem(1060);
+    font-size: clamp(rem(48), 10vw, rem(112));
+    line-height: 0.88;
+    letter-spacing: -0.06em;
+  }
+
+  &__button {
+    margin-top: rem(32);
+  }
+
+  &__visual {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: rem(10);
+  }
+
+  &__visual-card {
+    @include flex-center;
+
+    aspect-ratio: 1.18;
+    min-height: rem(120);
+    color: var(--color-white);
+    font-size: clamp(rem(16), 3vw, rem(42));
+    font-weight: 900;
+  }
+
+  &__visual-card--left {
+    color: var(--color-ink);
+    background: var(--color-sand);
+  }
+
+  &__visual-card--center {
+    background: var(--color-ink);
+  }
+
+  &__visual-card--right {
+    background: var(--color-coral);
+  }
+
+  @include mq(md) {
+    padding-block: rem(72) rem(96);
+
+    &__inner {
+      min-height: rem(520);
+    }
+
+    &__visual {
+      gap: rem(18);
+    }
+  }
+}

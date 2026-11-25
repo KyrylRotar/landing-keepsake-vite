@@ -1,0 +1,14 @@
+section#works.works
+  .container
+    .section-heading
+      p.section-heading__eyebrow Selected work
+      h2.section-heading__title Recent projects
+    .works__filters
+      each category, i in categories
+        label.works__filter(class={ 'works__filter--active': category.active })
+          input.visually-hidden(type='radio', name='portfolio-filter', value=category.value, checked=category.active)
+          span= category.label
+    ul.works__grid
+      each work, i in works
+        li.works__item(data-category=work.category)
+          +work-card(work)

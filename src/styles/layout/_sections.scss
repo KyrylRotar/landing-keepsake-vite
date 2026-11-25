@@ -1,0 +1,19 @@
+@use '../abstracts' as *;
+
+.section-heading {
+  margin-bottom: rem(48);
+
+  &__eyebrow {
+    margin-bottom: rem(12);
+    color: var(--color-coral);
+    font-size: rem(12);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    max-width: rem(700);
+    font-size: clamp(rem(38), 7vw, rem(72));
+    line-height: 0.98;
+  }
+}

@@ -1,0 +1,35 @@
+@use '../abstracts' as *;
+
+.services {
+  padding-block: rem(80);
+  background: var(--color-white);
+
+  &__list {
+    border-top: 1px solid rgb(23 25 31 / 20%);
+  }
+
+  &__item {
+    display: grid;
+    gap: rem(12);
+    padding-block: rem(28);
+    border-bottom: 1px solid rgb(23 25 31 / 20%);
+  }
+
+  &__number,
+  &__copy {
+    color: var(--color-muted);
+  }
+
+  &__name {
+    font-size: rem(28);
+  }
+
+  @include mq(md) {
+    padding-block: rem(120);
+
+    &__item {
+      grid-template-columns: rem(80) 1fr 1fr;
+      align-items: start;
+    }
+  }
+}

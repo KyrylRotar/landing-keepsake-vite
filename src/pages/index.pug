@@ -1,11 +1,34 @@
 extends ../layouts/main
 
-append meta
-    meta(charset="utf-8")
-    meta(name="viewport" content="width=device-width, initial-scale=1")
+block append meta
+  meta(name='description', content='Keepsake is an independent creative studio.')
+  meta(property='og:title', content='Keepsake — Creative Studio')
 
 block title
-    title Project
+  title Keepsake — Creative Studio
+
+block data
+  include ../data/navigation
+  include ../data/categories
+  include ../data/works
+  include ../data/services
+  include ../data/stats
+  include ../data/journal
+  include ../data/footer
+
+block append scripts
+  script(type='module', src='/src/main.js')
+
+block header
+  include ../components/header
 
 block content
-    main
+  include ../components/sections/hero
+  include ../components/sections/works
+  include ../components/sections/about
+  include ../components/sections/services
+  include ../components/sections/journal
+  include ../components/sections/contact
+
+block footer
+  include ../components/footer

@@ -1,0 +1,11 @@
+section#services.services
+  .container
+    .section-heading
+      p.section-heading__eyebrow What we do
+      h2.section-heading__title From idea to identity
+    ol.services__list
+      each service, i in services
+        li.services__item
+          span.services__number= service.number
+          h3.services__name= service.title
+          p.services__copy= service.text

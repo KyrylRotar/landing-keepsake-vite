@@ -1,0 +1,12 @@
+header.header
+  .container.header__inner
+    a.logo(href='/', aria-label='Keepsake home') KEEPSAKE
+    nav.header__nav(aria-label='Primary navigation')
+      ul.header__list
+        each item, i in navigation
+          li.header__item
+            if i === 0
+              a.header__link.header__link--active(href=item.href)= item.text
+            else
+              a.header__link(href=item.href)= item.text
+    +btn('Get in touch', '#contact').header__button(aria-label='Start a project')

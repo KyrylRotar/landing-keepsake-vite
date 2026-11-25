@@ -1,0 +1,60 @@
+mixin btn(text, href = '#')
+  case attributes.modifier
+    when 'light'
+      a.button.button--light(href=href)&attributes(attributes)
+        span= text
+    default
+      a.button(href=href)&attributes(attributes)
+        span= text
+        i.button__arrow ↗
+
+mixin icon(name)
+  case name
+    when 'arrow'
+      svg.icon(viewBox='0 0 24 24', aria-hidden='true')
+        path(d='M5 12h14M13 6l6 6-6 6')
+    when 'play'
+      svg.icon(viewBox='0 0 24 24', aria-hidden='true')
+        path(d='M8 5l11 7-11 7z')
+    default
+      svg.icon(viewBox='0 0 24 24', aria-hidden='true')
+        circle(cx='12', cy='12', r='8')
+
+mixin picture(image, alt, width = 800, height = 632, eager = false)
+  picture
+    source(
+      type='image/avif',
+      srcset='/src/assets/images/' + image + '-400.avif 400w, /src/assets/images/' + image + '-800.avif 800w',
+      sizes='(min-width: 1280px) 357px, (min-width: 768px) 50vw, 100vw'
+    )
+    source(
+      type='image/webp',
+      srcset='/src/assets/images/' + image + '-400.webp 400w, /src/assets/images/' + image + '-800.webp 800w',
+      sizes='(min-width: 1280px) 357px, (min-width: 768px) 50vw, 100vw'
+    )
+    if eager
+      img(
+        src='/src/assets/images/' + image + '-800.jpg',
+        alt=alt,
+        width=width,
+        height=height,
+        decoding='async',
+        fetchpriority='high'
+      )&attributes(attributes)
+    else
+      img(
+        src='/src/assets/images/' + image + '-800.jpg',
+        alt=alt,
+        width=width,
+        height=height,
+        loading='lazy',
+        decoding='async'
+      )&attributes(attributes)
+
+mixin work-card(work)
+  article.work-card&attributes(attributes)
+    a.work-card__link(href='#contact', aria-label='View #{work.title}')
+      +picture(work.image, work.alt, 800, 632)
+      .work-card__meta
+        h3.work-card__title= work.title
+        span.work-card__year= work.year

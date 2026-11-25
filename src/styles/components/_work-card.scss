@@ -1,0 +1,45 @@
+@use '../abstracts' as *;
+
+.work-card {
+  picture {
+    display: block;
+    overflow: hidden;
+    transition: transform 0.25s ease;
+  }
+
+  picture img {
+    width: 100%;
+    aspect-ratio: 1.266;
+    object-fit: cover;
+  }
+
+  &__link {
+    display: block;
+
+    @include focus-ring;
+
+    &:hover picture {
+      transform: translateY(rem(-6));
+    }
+  }
+
+  &__meta {
+    display: flex;
+    justify-content: space-between;
+    gap: rem(16);
+    padding-top: rem(14);
+  }
+
+  &__title,
+  &__year {
+    font-size: rem(14);
+  }
+
+  &__title {
+    font-weight: 700;
+  }
+
+  &__year {
+    color: var(--color-muted);
+  }
+}

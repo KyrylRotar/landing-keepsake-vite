@@ -1,0 +1,17 @@
+footer.footer
+  .container.footer__top
+    a.logo.logo--footer(href='/') KEEPSAKE
+    p.footer__statement Independent creative studio.
+  .container.footer__grid
+    each column in footerColumns
+      .footer__column
+        h2.footer__title= column.title
+        ul.footer__list
+          each link in column.links
+            li
+              if link.external
+                a.footer__link(href=link.href, target='_blank', rel='noopener')= link.text
+              else
+                a.footer__link(href=link.href)= link.text
+  .container.footer__bottom
+    p © 2026 Keepsake

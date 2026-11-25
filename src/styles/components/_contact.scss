@@ -1,0 +1,31 @@
+@use '../abstracts' as *;
+
+.contact {
+  padding-block: rem(80);
+  background: var(--color-coral);
+
+  &__inner {
+    display: grid;
+  }
+
+  &__eyebrow {
+    margin-bottom: rem(20);
+    font-size: rem(12);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    max-width: rem(850);
+    font-size: clamp(rem(44), 8vw, rem(88));
+    line-height: 0.96;
+  }
+
+  &__button {
+    margin-top: rem(32);
+  }
+
+  @include mq(md) {
+    padding-block: rem(120);
+  }
+}

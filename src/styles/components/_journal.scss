@@ -1,0 +1,42 @@
+@use '../abstracts' as *;
+
+.journal {
+  padding-block: rem(80);
+
+  &__list {
+    display: grid;
+    gap: rem(32);
+  }
+
+  &__item {
+    min-width: 0;
+  }
+
+  &__image {
+    margin-bottom: rem(16);
+  }
+
+  picture img {
+    width: 100%;
+    aspect-ratio: 1.266;
+    object-fit: cover;
+  }
+
+  &__date {
+    color: var(--color-muted);
+    font-size: rem(12);
+  }
+
+  &__title {
+    margin-top: rem(8);
+    font-size: rem(22);
+  }
+
+  @include mq(md) {
+    padding-block: rem(120);
+
+    &__list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

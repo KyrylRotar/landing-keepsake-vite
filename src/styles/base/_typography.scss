@@ -1,0 +1,19 @@
+@use '../abstracts' as *;
+
+:root {
+  @each $name, $value in $colors {
+    --color-#{$name}: #{$value};
+  }
+}
+
+body {
+  font-family: $font-body;
+  color: var(--color-ink);
+  background: var(--color-paper);
+  font-size: rem(16);
+  line-height: 1.5;
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}
